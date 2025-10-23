@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+.branding {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.branding span {
+  color: var(--color-secondary);
+}
+
+nav ul li a {
+  font-weight: 600;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after,
+nav ul li a[aria-current='page']::after {
+  background: var(--color-secondary);
+}
+
+.footerNote {
+  opacity: 0.85;
+}

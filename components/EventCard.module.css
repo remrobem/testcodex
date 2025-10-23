@@ -1,0 +1,62 @@
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(44, 62, 80, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(44, 62, 80, 0.16);
+}
+
+.imageWrapper {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.meta {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.description {
+  color: rgba(26, 26, 26, 0.82);
+}
+
+.cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.cta span {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cta span,
+.card:focus-within .cta span {
+  transform: translateX(4px);
+}
