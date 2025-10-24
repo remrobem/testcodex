@@ -21,16 +21,12 @@
   color: var(--color-secondary);
 }
 
-.navLinks {
-  list-style: none;
-}
-
-.navLinks :global(a) {
+:global(nav ul li a) {
   font-weight: 600;
   position: relative;
 }
 
-.navLinks :global(a::after) {
+:global(nav ul li a::after) {
   content: '';
   position: absolute;
   left: 0;
@@ -41,9 +37,9 @@
   transition: background 0.3s ease;
 }
 
-.navLinks :global(a:hover::after),
-.navLinks :global(a:focus::after),
-.navLinks :global(a[aria-current='page']::after) {
+:global(nav ul li a:hover::after),
+:global(nav ul li a:focus::after),
+:global(nav ul li a[aria-current='page']::after) {
   background: var(--color-secondary);
 }
 

@@ -16,7 +16,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <Link href="/" className={styles.branding}>
             Church of the <span>Epiphany</span>
           </Link>
-          <ul className={styles.navLinks}>
+          <ul>
             <li>
               <Link href="/" aria-current={isActive('/') ? 'page' : undefined}>
                 Home
