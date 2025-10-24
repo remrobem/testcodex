@@ -1,0 +1,10 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="40" fill="#f4f1ff"/>
+  <circle cx="180" cy="200" r="110" fill="#8e44ad" opacity="0.2"/>
+  <circle cx="620" cy="380" r="150" fill="#f39c12" opacity="0.18"/>
+  <path d="M200 420C260 360 340 360 400 420C460 480 540 480 600 420" stroke="#2c3e50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M210 250L240 180L270 250" stroke="#2c3e50" stroke-width="10" stroke-linecap="round"/>
+  <path d="M530 210L570 140L610 210" stroke="#2c3e50" stroke-width="10" stroke-linecap="round"/>
+  <text x="400" y="320" text-anchor="middle" font-family="'Inter', sans-serif" font-size="48" fill="#2c3e50">Epiphany Feast</text>
+  <text x="400" y="370" text-anchor="middle" font-family="'Inter', sans-serif" font-size="24" fill="#8e44ad">Gather • Celebrate • Bless</text>
+</svg>

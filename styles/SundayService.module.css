@@ -1,0 +1,46 @@
+.wrapper {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.12), rgba(142, 68, 173, 0.12));
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero h1 {
+  color: var(--color-primary);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+}
+
+.schedule,
+.gettingReady {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 15px 45px rgba(44, 62, 80, 0.08);
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule ul,
+.gettingReady ul {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.schedule li::before,
+.gettingReady li::before {
+  content: '•';
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+}
