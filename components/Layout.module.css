@@ -21,12 +21,12 @@
   color: var(--color-secondary);
 }
 
-nav ul li a {
+:global(nav ul li a) {
   font-weight: 600;
   position: relative;
 }
 
-nav ul li a::after {
+:global(nav ul li a::after) {
   content: '';
   position: absolute;
   left: 0;
@@ -37,9 +37,9 @@ nav ul li a::after {
   transition: background 0.3s ease;
 }
 
-nav ul li a:hover::after,
-nav ul li a:focus::after,
-nav ul li a[aria-current='page']::after {
+:global(nav ul li a:hover::after),
+:global(nav ul li a:focus::after),
+:global(nav ul li a[aria-current='page']::after) {
   background: var(--color-secondary);
 }
 
