@@ -14,6 +14,11 @@ export interface EventFrontMatter {
   image: string;
 }
 
+type RawEventFrontMatter = Omit<EventFrontMatter, 'startDate' | 'endDate'> & {
+  startDate: string | Date;
+  endDate: string | Date;
+};
+
 export interface EventSummary extends EventFrontMatter {
   slug: string;
 }
@@ -28,6 +33,16 @@ const eventsDirectory = path.join(process.cwd(), 'content', 'events');
 async function readEventFile(slug: string) {
   const fullPath = path.join(eventsDirectory, `${slug}.mdx`);
   return fs.readFile(fullPath, 'utf8');
+}
+
+function normalizeFrontMatter(data: RawEventFrontMatter): EventFrontMatter {
+  const { startDate, endDate, ...rest } = data;
+
+  return {
+    ...rest,
+    startDate: startDate instanceof Date ? startDate.toISOString() : String(startDate),
+    endDate: endDate instanceof Date ? endDate.toISOString() : String(endDate)
+  };
 }
 
 function sortByStartDate(events: EventSummary[]) {
@@ -45,7 +60,7 @@ export async function getEventSummaries(): Promise<EventSummary[]> {
     slugs.map(async (slug) => {
       const source = await readEventFile(slug);
       const { data } = matter(source);
-      const frontMatter = data as EventFrontMatter;
+      const frontMatter = normalizeFrontMatter(data as RawEventFrontMatter);
 
       return { slug, ...frontMatter } satisfies EventSummary;
     })
@@ -57,8 +72,10 @@ export async function getEventSummaries(): Promise<EventSummary[]> {
 export async function getEventDetail(slug: string): Promise<EventDetail> {
   const source = await readEventFile(slug);
   const { content, data } = matter(source);
-  const frontMatter = data as EventFrontMatter;
-  const mdxSource = await serialize(content, { scope: frontMatter });
+  const frontMatter = normalizeFrontMatter(data as RawEventFrontMatter);
+  const mdxSource = await serialize(content, {
+    scope: frontMatter as unknown as Record<string, unknown>
+  });
 
   return {
     slug,
